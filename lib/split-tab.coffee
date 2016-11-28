@@ -25,9 +25,12 @@ module.exports = SplitTab =
     splitTabViewState: @splitTabView.serialize()
 
   toggle: ->
-    console.log 'SplitTab was toggled!'
 
-    if @modalPanel.isVisible()
-      @modalPanel.hide()
-    else
-      @modalPanel.show()
+    options =
+      initialLine: 0
+      initialColumn: 0
+      split: 'right'
+      activatePane: true
+      searchAllPanes: false
+
+    atom.workspace.open 'test.js', options
